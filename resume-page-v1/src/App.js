@@ -84,7 +84,7 @@ function App() {
           //onClick = {}
         >Contact Us</Button>
       </h1>
-      <p> style={{ fontSize: 20 }}Please fill in this form to create a Resume. 
+      <p style={{ fontSize: 20 }} >Please fill in this form to create a Resume. 
         Enter your information in the form of bullet points in each description. 
         Use the '+' to add more categories to your resume</p>
       <form className={classes.root} onSubmit={handleSubmit}>
