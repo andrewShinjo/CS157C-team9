@@ -7,7 +7,6 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 //import Icon from '@material-ui/core/Icon';
 import { v4 as uuidv4 } from 'uuid';
-
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +23,12 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles()
   const [inputFields, setInputFields] = useState([
-    { id: uuidv4(), category: 'Objective', description: 'Looking for a Software Engineering Internship for Fall 2021' },
+    { id: uuidv4(), category: 'Category', description: '' },
+    { id: uuidv4(), category: 'Objective', description: '' },
+    { id: uuidv4(), category: 'Education', description: '' },
+    { id: uuidv4(), category: 'Qualifications', description: '' },
+    { id: uuidv4(), category: 'Work Experience', description: '' },
+    { id: uuidv4(), category: 'Certificates', description: '' },
   ]);
 
   const handleSubmit = (e) => {
@@ -54,8 +58,33 @@ function App() {
   
   return (
     <Container>
-      <h1>Create a Resume</h1>
-      <p>Please fill in this form to create a Resume. 
+      <h1 style={{ display: "flex" }}>Create a Resume
+      <Button style={{ marginLeft: "auto" }}
+          className={classes.button}
+          variant="contained" 
+          color = "secondary"
+          //onClick = {}
+        >Home</Button>
+        <Button
+          className={classes.button}
+          variant="contained" 
+          color = "secondary"
+          //onClick = {}
+        >Resume Page</Button>
+        <Button
+          className={classes.button}
+          variant="contained" 
+          color = "secondary"
+          //onClick = {}
+        >Peer Review Page</Button>
+        <Button
+          className={classes.button}
+          variant="contained" 
+          color = "secondary"
+          //onClick = {}
+        >Contact Us</Button>
+      </h1>
+      <p> style={{ fontSize: 20 }}Please fill in this form to create a Resume. 
         Enter your information in the form of bullet points in each description. 
         Use the '+' to add more categories to your resume</p>
       <form className={classes.root} onSubmit={handleSubmit}>
@@ -80,8 +109,8 @@ function App() {
             <TextField
               name="description"
               label="Description"
-              style = {{ width: 1100}}
-              variant="filled"
+              style = {{ width: window.innerWidth * .845}}
+              variant="outlined"
               multiline
               value={inputField.description}
               onChange={event => handleChangeInput(inputField.id, event)}
