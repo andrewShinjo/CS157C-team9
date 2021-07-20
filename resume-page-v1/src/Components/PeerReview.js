@@ -1,17 +1,22 @@
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import {useStyles} from './Home.js';
-
+import ScoreHandler from './ScoreHandler.js'
+import { useState } from 'react';
 
 const PeerReview= () => {
     const classes = useStyles()
 
+    const [scoreFields, setScoreFields] = useState([
+      {category: '', score: '' }
+    ]);
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+        console.log("Ratings", scoreFields);
       };
+      
+    
 
   return (
     <Container>
@@ -37,19 +42,14 @@ const PeerReview= () => {
               InputProps={{
                 readOnly: true,
               }}
-              style = {{ width: window.innerWidth * .5}}
-              variant="outlined"
+              style = {{ width: '50vw'}}
+              variant="filled"
               multiline
               value = "Looking for SWE Internship" 
             />  
            
-            <ButtonGroup size="large" color="primary" style = {{marginLeft: window.innerWidth * .1, height: '6vh'}}>
-                <Button>5</Button>
-                <Button>4</Button>
-                <Button>3</Button>
-                <Button>2</Button>
-                <Button>1</Button>
-             </ButtonGroup>
+           <ScoreHandler>
+            </ScoreHandler>
 
             <br></br> 
             <TextField
@@ -68,19 +68,14 @@ const PeerReview= () => {
               InputProps={{
                 readOnly: true,
               }}
-              style = {{ width: window.innerWidth * .5}}
-              variant="outlined"
+              style = {{ width: '50vw'}}
+              variant="filled"
               multiline
               value = "Bachlors of Science, Computer Science at SJSU" 
             />   
 
-            <ButtonGroup size="large" color="primary" style = {{marginLeft: window.innerWidth * .1, height: '6vh'}}>
-                <Button>5</Button>
-                <Button>4</Button>
-                <Button>3</Button>
-                <Button>2</Button>
-                <Button>1</Button>
-             </ButtonGroup>
+            <ScoreHandler>
+            </ScoreHandler>
             <br></br>
 
             <TextField
@@ -99,19 +94,14 @@ const PeerReview= () => {
               InputProps={{
                 readOnly: true,
               }}
-              style = {{ width: window.innerWidth * .5}}
-              variant="outlined"
+              style = {{ width: '50vw'}}
+              variant="filled"
               multiline
               value = "Proficient in full stack web development" 
             />  
 
-            <ButtonGroup size="large" color="primary" style = {{marginLeft: window.innerWidth * .1, height: '6vh'}}>
-                <Button>5</Button>
-                <Button>4</Button>
-                <Button>3</Button>
-                <Button>2</Button>
-                <Button>1</Button>
-             </ButtonGroup>
+            <ScoreHandler>
+            </ScoreHandler>
             <br></br> 
             <TextField
               name="category"
@@ -129,19 +119,14 @@ const PeerReview= () => {
               InputProps={{
                 readOnly: true,
               }}
-              style = {{ width: window.innerWidth * .5}}
-              variant="outlined"
+              style = {{ width: '50vw'}}
+              variant="filled"
               multiline
               value = "CEO of google" 
             />   
 
-            <ButtonGroup size="large" color="primary" style = {{marginLeft: window.innerWidth * .1, height: '6vh'}}>
-                <Button>5</Button>
-                <Button>4</Button>
-                <Button>3</Button>
-                <Button>2</Button>
-                <Button>1</Button>
-             </ButtonGroup>
+            <ScoreHandler>
+            </ScoreHandler>
             <br></br>
             <TextField
               name="category"
@@ -159,22 +144,22 @@ const PeerReview= () => {
               InputProps={{
                 readOnly: true,
               }}
-              style = {{ width: window.innerWidth * .5}}
-              variant="outlined"
+              style = {{ width: '50vw'}}
+              variant="filled"
               multiline
               value = "Cybersecurity certification from SJSU" 
             />  
-
-            <ButtonGroup 
-            size="large" 
-            color="primary" 
-            style = {{marginLeft: window.innerWidth * .1, height: '6vh'}}>
-                <Button>5</Button>
-                <Button>4</Button>
-                <Button>3</Button>
-                <Button>2</Button>
-                <Button>1</Button>
-             </ButtonGroup> 
+            <ScoreHandler>
+            </ScoreHandler>
+          </div>
+              <br></br>
+          <div>
+            <TextField 
+            name = "Additional Comments"
+            label = "Additional Comments (optional)"
+            variant = "outlined"
+            style = {{ width: '75vw'}}
+            ></TextField>
           </div>
         <Button
           className={classes.button}

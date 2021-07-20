@@ -17,14 +17,6 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 24, 
     justifyContent:'center', 
     alignItems:'center',
-  },
-  ratings: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    '& > *': {
-      margin: theme.spacing(1),
-    }
   }
 }))
   

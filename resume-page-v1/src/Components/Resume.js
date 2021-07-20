@@ -73,7 +73,7 @@ const ResumePage = () => {
             <TextField
               name="description"
               label="Description"
-              style = {{ width: window.innerWidth * .75}}
+              style = {{ width: '70vw'}}
               variant="outlined"
               multiline
               value={inputField.description}

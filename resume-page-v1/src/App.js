@@ -18,7 +18,7 @@ const App = () => {
 
   return(
     <div> 
-      <h1 style={{ display: "flex", marginLeft: 40 }}>Resume Reviewer
+      <h1 style={{ display: "flex", marginLeft: '5vw' }}>Resume Reviewer
         <Button style={{ marginLeft: "auto" }}
           className={classes.button}
           variant="contained" 
