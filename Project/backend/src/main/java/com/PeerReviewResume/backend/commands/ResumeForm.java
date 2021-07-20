@@ -1,53 +1,17 @@
-package com.PeerReviewResume.backend.entity;
-import java.io.Serializable;
+package com.PeerReviewResume.backend.commands;
+
 import java.util.Date;
 import java.util.UUID;
 
-import org.springframework.data.cassandra.core.mapping.Column;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
-
-/**
- * Representing table 'resumes'
- * @author Xiang Liu
- */
-@Table("resumes")
-public class Resume implements Serializable {
-    @PrimaryKey
+public class ResumeForm {
     private UUID userid;
-
-    @Column
     private String category;
-    @Column
     private String objective;
-    @Column
     private String education;
-    @Column
     private String qualifications;
-    @Column
     private String work_experience;
-    @Column
     private Date date;
 
-    /**
-     * Default Constructor
-     */
-    public Resume() { userid = UUID.randomUUID(); }
-
-    /**
-     * Constructor with all parameters
-     */
-    public Resume(UUID userid, String category, String objective, String education, String qualifications, String work_experience, Date date) {
-        this.userid = userid;
-        this.category = category;
-        this.objective = objective;
-        this.education = education;
-        this.qualifications = qualifications;
-        this.work_experience = work_experience;
-        this.date = date;
-    }
-
-    // getter and setter methods for different fields
     public UUID getUserid () { return userid; }
 
     public void setUserid(UUID userid) {
