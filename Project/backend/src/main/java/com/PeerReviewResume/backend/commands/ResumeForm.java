@@ -10,7 +10,7 @@ public class ResumeForm {
     private String education;
     private String qualifications;
     private String work_experience;
-    private Date date;
+    private String date;
 
     public UUID getUserid () { return userid; }
 
@@ -49,9 +49,9 @@ public class ResumeForm {
         this.work_experience = work_experience;
     }
 
-    public Date getDate() { return date; }
+    public String getDate() { return date; }
 
-    public void setDate (Date date) {
+    public void setDate (String date) {
         this.date = date;
     }
 }

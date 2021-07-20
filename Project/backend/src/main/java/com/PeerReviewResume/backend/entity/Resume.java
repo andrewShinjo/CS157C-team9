@@ -27,7 +27,7 @@ public class Resume implements Serializable {
     @Column
     private String work_experience;
     @Column
-    private Date date;
+    private String date;
 
     /**
      * Default Constructor
@@ -37,7 +37,7 @@ public class Resume implements Serializable {
     /**
      * Constructor with all parameters
      */
-    public Resume(UUID userid, String category, String objective, String education, String qualifications, String work_experience, Date date) {
+    public Resume(UUID userid, String category, String objective, String education, String qualifications, String work_experience, String date) {
         this.userid = userid;
         this.category = category;
         this.objective = objective;
@@ -85,9 +85,9 @@ public class Resume implements Serializable {
         this.work_experience = work_experience;
     }
 
-    public Date getDate() { return date; }
+    public String getDate() { return date; }
 
-    public void setDate (Date date) {
+    public void setDate (String date) {
         this.date = date;
     }
 }
