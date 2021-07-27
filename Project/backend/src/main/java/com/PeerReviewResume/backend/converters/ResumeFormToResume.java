@@ -12,11 +12,12 @@ public class ResumeFormToResume implements Converter<ResumeForm, Resume> {
         if (resumeForm.getUserid() != null) {
             resume.setUserid(resumeForm.getUserid());
         }
-        resume.setCategory(resumeForm.getCategory());
+        resume.setField(resumeForm.getField());
         resume.setObjective(resumeForm.getObjective());
         resume.setEducation(resumeForm.getEducation());
         resume.setQualifications(resumeForm.getQualifications());
         resume.setWork_experience(resumeForm.getWork_experience());
+        resume.setCertificates(resumeForm.getCertificates());
         resume.setDate(resumeForm.getDate());
         return resume;
     }

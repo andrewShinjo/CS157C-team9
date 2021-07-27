@@ -5,12 +5,13 @@ import java.util.UUID;
 
 public class ResumeForm {
     private UUID userid;
-    private String category;
+    private String field;
     private String objective;
     private String education;
     private String qualifications;
     private String work_experience;
-    private String date;
+    private String certificates;
+    private Date date;
 
     public UUID getUserid () { return userid; }
 
@@ -18,11 +19,10 @@ public class ResumeForm {
         this.userid = userid;
     }
 
-    public String getCategory() { return category; }
+    public String getField() { return field; }
 
-    public void setCategory(String category) {
-        this.category = category;
-
+    public void setField(String field) {
+        this.field = field;
     }
 
     public String getObjective() { return objective; }
@@ -49,9 +49,16 @@ public class ResumeForm {
         this.work_experience = work_experience;
     }
 
-    public String getDate() { return date; }
+    public String getCertificates() {
+        return certificates;
+    }
 
-    public void setDate (String date) {
+    public void setCertificates(String certificates) {
+        this.certificates = certificates;
+    }
+    public Date getDate() { return date; }
+
+    public void setDate (Date date) {
         this.date = date;
     }
 }

@@ -17,7 +17,7 @@ public class Resume implements Serializable {
     private UUID userid;
 
     @Column
-    private String category;
+    private String field;
     @Column
     private String objective;
     @Column
@@ -27,7 +27,9 @@ public class Resume implements Serializable {
     @Column
     private String work_experience;
     @Column
-    private String date;
+    private String certificates;
+    @Column
+    private Date date;
 
     /**
      * Default Constructor
@@ -37,13 +39,14 @@ public class Resume implements Serializable {
     /**
      * Constructor with all parameters
      */
-    public Resume(UUID userid, String category, String objective, String education, String qualifications, String work_experience, String date) {
+    public Resume(UUID userid, String field, String objective, String education, String qualifications, String work_experience, String certificates, Date date) {
         this.userid = userid;
-        this.category = category;
+        this.field = field;
         this.objective = objective;
         this.education = education;
         this.qualifications = qualifications;
         this.work_experience = work_experience;
+        this.certificates = certificates;
         this.date = date;
     }
 
@@ -54,11 +57,10 @@ public class Resume implements Serializable {
         this.userid = userid;
     }
 
-    public String getCategory() { return category; }
+    public String getField() { return field; }
 
-    public void setCategory(String category) {
-        this.category = category;
-
+    public void setField(String field) {
+        this.field = field;
     }
 
     public String getObjective() { return objective; }
@@ -85,9 +87,13 @@ public class Resume implements Serializable {
         this.work_experience = work_experience;
     }
 
-    public String getDate() { return date; }
+    public String getCertificates() { return certificates; }
 
-    public void setDate (String date) {
+    public void setCertificates(String certificates) { this.certificates = certificates; }
+
+    public Date getDate() { return date; }
+
+    public void setDate (Date date) {
         this.date = date;
     }
 }

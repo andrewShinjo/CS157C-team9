@@ -28,7 +28,7 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public List<Resume> listAll() {
         List<Resume> resumes = new ArrayList<>();
-        resumeRepository.findAll().forEach(resumes::add); //fun with Java 8
+        resumeRepository.findAll().forEach(resumes::add);
         return resumes;
     }
 
