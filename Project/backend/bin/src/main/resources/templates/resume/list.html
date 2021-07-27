@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Resumes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(resumes)}">
+        <h2>Resume List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Userid</th>
+                <th>Field</th>
+                <th>Objective</th>
+                <th>Education</th>
+                <th>Qualifications</th>
+                <th>Work Experience</th>
+                <th>Certificates</th>
+                <th>List</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="resume : ${resumes}">
+                <td th:text="${resume.userid}"></td>
+                <td th:text="${resume.field}"></td>
+                <td th:text="${resume.objective}"></td>
+                <td th:text="${resume.education}"></td>
+                <td th:text="${resume.qualifications}"></td>
+                <td th:text="${resume.work_experience}"></td>
+                <td th:text="${resume.certificates}"></td>
+                <td><a th:href="${'/resume/show/' + resume.userid}">View</a> </td>
+                <td><a th:href="${'/resume/edit/' + resume.userid}">Edit</a> </td>
+                <td><a th:href="${'/resume/delete/' + resume.userid}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="/resume/new">New Resume</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
