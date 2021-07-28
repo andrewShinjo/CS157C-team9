@@ -22,6 +22,10 @@
     <p>Please fill in this form to create an account.</p>
     <hr>
    		<p>
+   			<label for="firstName" class="sr-only">First Name</label>
+    		<input type="text" th:field="*{firstName}" id="first" name="firstName" class="form-control" placeholder="Enter First Name" required="" autofocus="">
+   			<label for="lastName" class="sr-only">Last Name</label>
+    		<input type="text" th:field="*{lastName}" id="last" name="lastName" class="form-control" placeholder="Enter Last Name" required="" autofocus="">
    			<label for="email" class="sr-only">Email</label>
     		<input type="text" th:field="*{email}" id="email" name="email" class="form-control" placeholder="Enter Email">
 			<label for="password" class="sr-only">Password</label>
