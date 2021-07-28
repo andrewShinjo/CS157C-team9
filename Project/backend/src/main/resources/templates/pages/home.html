@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact Us</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<Container>
+        <h1 class = "centered" style = "fontSize: 30; height: '10vh'"}>
+            Welcome to Peer Resume Reviewer
+        </h1>
+        
+        <div class = "centered">
+          Below is the most recent review of your resume
+        </div>
+            
+        <div class = "centered"  style = "height:'10vh'">
+          If you haven't already, visit "Resume Page" at the top right to create and submit a resume.
+          <br></br><br></br>
+          If you've already submitted a resume, check out the peer review page to review other resumes.
+          <br></br><br></br>
+          For more info, contact us.
+        </div>
+      </Container>
+ </body>
