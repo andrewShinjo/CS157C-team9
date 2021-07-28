@@ -2,6 +2,7 @@ package com.PeerReviewResume.backend.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import javax.validation.Valid;
 
@@ -14,30 +15,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import com.PeerReviewResume.backend.entity.UserCredentials;
 import com.PeerReviewResume.backend.repositories.UserCredentialsRepository;
 
-@RestController
+@Controller
 public class UserCredentialsController {
 	private UserFormToUserCredentials userFormToUserCredentials;
 	@Autowired
 	private UserCredentialsRepository userCredentialsRepository ;
 
-	@PostMapping("/users/signUp")
-	public Status registerUser(@Valid @RequestBody UserForm userForm) {
-		List<UserCredentials> userCredentials = userCredentialsRepository.findAll();
-		UserCredentials newUser = userFormToUserCredentials.convert(userForm);
-		for (UserCredentials userCredential : userCredentials) {
-			if (userCredential.equals(newUser)) {
-				System.out.println("User Already exists!");
-				return Status.USER_ALREADY_EXISTS;
-			}
+	@GetMapping(value = "/signUp")
+	public String getSignUpForm(Model model) {
+		model.addAttribute("userCredentials" , new UserCredentials());
+	
+		return "pages/signUp" ;
+	}
+	
+	@PostMapping(value="/signUp")
+	public String getSubmittedSignUpDate (@ModelAttribute UserCredentials userCredentials) {
+		Optional<UserCredentials> uc = userCredentialsRepository.findByEmail(userCredentials.getEmail());
+		if (uc.isEmpty()) {
+			userCredentials.setPassword(passwordEncoder().encode(userCredentials.getPassword()));
+			userCredentialsRepository.save(userCredentials);
 		}
-		userCredentialsRepository.save(newUser);
-		return Status.SUCCESS;
+		return "pages/signUp" ;
 	}
 
 
