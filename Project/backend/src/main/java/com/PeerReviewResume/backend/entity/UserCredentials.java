@@ -1,6 +1,7 @@
 package com.PeerReviewResume.backend.entity;
 import java.util.UUID;
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -23,7 +24,7 @@ public class UserCredentials implements Serializable{
     /**
      * Default constructor
      */
-    public UserCredentials() {}
+    public UserCredentials() {userid = UUID.randomUUID();}
 
     /**
      * Constructor with all parameters
@@ -38,8 +39,8 @@ public class UserCredentials implements Serializable{
         return email;
     }
 
-    public void setEmail() {
-        this.email = email;
+    public void setEmail(String email) {
+        this.email = this.email;
     }
 
     public String getPassword() {
@@ -57,5 +58,17 @@ public class UserCredentials implements Serializable{
     public void setUserid(UUID userid) {
         this.userid = userid;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        UserCredentials userCredentials = (UserCredentials) o;
+        return Objects.equals(email, userCredentials.email) && Objects.equals(password, userCredentials.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, password, userid);
+    }
+
 
 }

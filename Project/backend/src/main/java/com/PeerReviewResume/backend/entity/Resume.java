@@ -34,7 +34,7 @@ public class Resume implements Serializable {
     /**
      * Default Constructor
      */
-    public Resume() { userid = UUID.randomUUID(); }
+    public Resume() {}
 
     /**
      * Constructor with all parameters
