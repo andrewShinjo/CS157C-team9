@@ -4,6 +4,8 @@ import com.PeerReviewResume.backend.commands.ResumeForm;
 import com.PeerReviewResume.backend.converters.ResumeFormToResume;
 import com.PeerReviewResume.backend.entity.Resume;
 import com.PeerReviewResume.backend.repositories.ResumeRepository;
+import com.PeerReviewResume.backend.repositories.UserCredentialsRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,7 @@ public class ResumeServiceImpl implements ResumeService {
 
     private ResumeRepository resumeRepository;
     private ResumeFormToResume resumeFormToResume;
+    private UserCredentialsRepository userCredentialsRepository;
 
     @Autowired
     public ResumeServiceImpl(ResumeRepository resumeRepository, ResumeFormToResume resumeFormToResume) {
