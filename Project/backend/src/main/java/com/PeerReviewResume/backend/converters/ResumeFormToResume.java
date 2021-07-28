@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ResumeFormToResume implements Converter<ResumeForm, Resume> {
+	@Autowired
 	UserCredentialsRepository userCredentialsRepository;
 	
 	
@@ -25,7 +26,7 @@ public class ResumeFormToResume implements Converter<ResumeForm, Resume> {
         
         UUID currentUserId = userCredentialsRepository.findByEmail(email).get().getUserid();
         
-
+        
         resume.setUserid(currentUserId);
         resume.setField(resumeForm.getField());
         resume.setObjective(resumeForm.getObjective());
@@ -33,7 +34,7 @@ public class ResumeFormToResume implements Converter<ResumeForm, Resume> {
         resume.setQualifications(resumeForm.getQualifications());
         resume.setWork_experience(resumeForm.getWork_experience());
         resume.setCertificates(resumeForm.getCertificates());
-        resume.setDate(resumeForm.getDate());
+        resume.setDate(new java.util.Date());
         return resume;
     }
 }

@@ -35,6 +35,7 @@ public class ResumeController {
     public String redirToList() {
         return "redirect:/resume/list";
     }
+    
 
     @RequestMapping({"/resume/list", "/resume"})
     public String listResumes( Model model) {
