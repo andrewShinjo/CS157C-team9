@@ -103,20 +103,13 @@
                 <label class="col-sm-2 control-label">Certificates:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" th:field="*{certificates}" th:errorclass="has-error"/>
-
-                    <span class="help-block">
-                       <ul>
-                           <li 
-                           <textarea
+                     <textarea
                            		cols="40" name="certificateText" rows="4" style="100%" th:each="err : ${#fields.errors('certificates')}" th:text="${err}" 
-                           </textarea>
-                           </li>
-                       </ul>
-                    </span>
+                      </textarea>
                 </div>
             </div>
             <div class="row">
-                <button style = "margin-left: 30px; margin-right: 30px" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button style = "margin-left: 30px; width: 20%;"class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
             </div>
         </form>
     </div>
