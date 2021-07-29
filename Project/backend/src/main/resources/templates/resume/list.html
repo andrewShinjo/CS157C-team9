@@ -15,7 +15,9 @@
 </head>
 <body>
 
-
+<form action="#" th:action="@{/logout}" method="post">
+	<input type="submit" value="Sign out"/>
+</form>
 
 <div class="container">
     <div th:if="${not #lists.isEmpty(resumes)}">
