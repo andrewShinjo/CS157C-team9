@@ -1,37 +1,36 @@
 package com.PeerReviewResume.backend.controllers;
 
-import com.PeerReviewResume.backend.entity.Reviews;
-import com.PeerReviewResume.backend.entity.Resume;
-import com.PeerReviewResume.backend.repositories.ReviewsRepository;
-import com.PeerReviewResume.backend.repositories.UserCredentialsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.UUID;
+
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Date;
-import java.util.Optional;
+import com.PeerReviewResume.backend.entity.Reviews;
+import com.PeerReviewResume.backend.repositories.ReviewsRepository;
 
+@Controller
 public class ReviewsController {
-
-    @Autowired
-    private ReviewsRepository reviewsRepository;
-
-    @GetMapping(value = "/review")
-    public String getReviewForm(Model model) {
-        model.addAttribute("reviews" , new Reviews());
-
-        return "pages/review" ;
-    }
-
-    @PostMapping({"/review", "/resume/review_content"})
-    public String getSubmittedSignUpDate (@ModelAttribute Reviews reviews, @ModelAttribute Resume resumes) {
-        reviews.setUserid(resumes.getUserid());
-        reviews.setField(resumes.getField());
-        reviews.setDate(new Date());
-        reviewsRepository.save(reviews);
-
-        return "redirect:/" ;
-    }
+	private ReviewsRepository reviewRepo;
+	
+	@GetMapping(value = "/review")
+	public String getReviewData(Model model) {
+		model.addAttribute("reviews", new Reviews());
+		return "pages/review";
+	}
+	
+	@PostMapping(value = "/review")
+	public String onSubmit(@ModelAttribute Reviews reviews) {
+		reviews.setUserid(new UUID(0,1));
+		reviews.setDate(new java.util.Date());
+		reviews.setField("Computer Science");
+		reviews.setComments("good job");
+		System.out.println(reviews.toString());
+		reviewRepo.save(reviews);
+		return "pages/review";
+	}
 }
+
+
