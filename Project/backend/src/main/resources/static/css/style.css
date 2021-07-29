@@ -1,17 +1,18 @@
 .navbar {
   overflow: hidden;
   background-color: #800080;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%; 
 }
-
 .main {
 	margin-top:50px;
+	margin-left: 20px;
 }
 h2 {
-	margin-left: 10px;
+	margin-left: 15px;
 }
+
 .navbar a {
   float: right;
   display: block;
@@ -20,9 +21,27 @@ h2 {
   padding: 14px 16px;
   text-decoration: none;
 }
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
 .inputs {
 	margin-bottom: 10px;
 }
+
 body {
 	background-color: #F2F2F2;
 }
@@ -34,8 +53,10 @@ body {
 
 textarea
 {
-  font-family:"Roboto", Times, serif;
-  font-size: 20px;
+  font-family:"Times New Roman", Times, serif;  
+  font-size: 16px;
+  width: 100%;
+  rows: 3;
 }
 .centered {
 	margin: auto;
@@ -95,80 +116,4 @@ textarea
 }
 .star-rating i ~ i ~ i ~ i ~ i {
   width: 100%;
-}
-.choice {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  padding: 20px;
-  display: block;
-}
-span.scale-rating{
-margin: 5px 0 15px;
-    display: inline-block;
-   
-    width: 100%;
-   
-}
-span.scale-rating>label {
-  position:relative;
-    -webkit-appearance: none;
-  outline:0 !important;
-    border: 1px solid grey;
-    height:33px;
-    margin: 0 5px 0 0;
-  width: calc(10% - 7px);
-    float: left;
-  cursor:pointer;
-}
-span.scale-rating label {
-  position:relative;
-    -webkit-appearance: none;
-  outline:0 !important;
-    height:33px;
-      
-    margin: 0 5px 0 0;
-  width: calc(10% - 7px);
-    float: left;
-  cursor:pointer;
-}
-span.scale-rating input[type=radio] {
-  position:absolute;
-    -webkit-appearance: none;
-  opacity:0;
-  outline:0 !important;
-    /*border-right: 1px solid grey;*/
-    height:33px;
- 
-    margin: 0 5px 0 0;
-  
-  width: 100%;
-    float: left;
-  cursor:pointer;
-  z-index:3;
-}
-span.scale-rating label:hover{
-background:#fddf8d;
-}
-span.scale-rating input[type=radio]:last-child{
-border-right:0;
-}
-span.scale-rating label input[type=radio]:checked ~ label{
-    -webkit-appearance: none;
-    margin: 0;
-  	background:#fddf8d;
-}
-span.scale-rating label:before
-{
-  content:attr(value);
-    top: 7px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    vertical-align: middle;
-  z-index:2;
 }
