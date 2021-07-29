@@ -12,15 +12,19 @@
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/resume/list">Resume</a>
-    <a href="/review">Reviews</a>
-
-    <form action="#" th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign out"/>
-    </form>
+    <div class = "navbar">
+		<form action="#" th:action="@{/logout}" method="post">
+        	<input type="submit" value="Sign out"/>
+    	</form>
+    	<a href="/">Home</a>
+    	<a href="/resume/list">Resume</a>
+    	<a href="/review">Reviews</a>
+    	<a href="/contactUs">Contact Us</a> 		
+    </div>
+    <div class = "main">
 		<div class="centered">
             <h1>Contact Us:
             </h1>
@@ -32,4 +36,5 @@
             Xiang Liu: xiang.liu@sjsu.edu
             </div>
         </div>
+     </div>
 </body>

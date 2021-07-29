@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Contact Us</title>
+    <title>Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" 
@@ -13,29 +13,27 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/resume/list">Resume</a>
-    <a href="/review">Reviews</a>
+	<div class = "navbar">
+		<form action="#" th:action="@{/logout}" method="post">
+        	<input type="submit" value="Sign out"/>
+    	</form>
+    	<a href="/">Home</a>
+    	<a href="/resume/list">Resume</a>
+    	<a href="/review">Reviews</a>
+    	<a href="/contactUs">Contact Us</a> 		
+    </div>
 
-    <form action="#" th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign out"/>
-    </form>
-
-    <Container>
-        <h1 class = "centered" style = "fontSize: 30; height: '10vh'"}>
+    <div class = "main">
+        <h1 class = "centered" style = "fontSize: 30"}>
             Welcome to Peer Resume Reviewer
         </h1>
-        
-        <div class = "centered">
-          Below is the most recent review of your resume
-        </div>
             
-        <div class = "centered"  style = "height:'10vh'">
+        <div class = "centered">
           If you haven't already, visit "Resume Page" at the top right to create and submit a resume.
           <br></br><br></br>
           If you've already submitted a resume, check out the peer review page to review other resumes.
           <br></br><br></br>
           For more info, contact us.
         </div>
-      </Container>
+      </div>
  </body>

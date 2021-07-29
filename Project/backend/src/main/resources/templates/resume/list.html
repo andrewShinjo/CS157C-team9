@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>List Resumes</title>
+    <title>Resume List</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
-
-    <link href="../../static/css/spring-core.css"
-          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
-<a href="/">Home</a>
-<a href="/resume/list">Resume</a>
-<a href="/review">Reviews</a>
-<a href="/contactUs">Contact Us</a>
-<form action="#" th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign out"/>
-</form>
+	<div class = "navbar">
+		<form action="#" th:action="@{/logout}" method="post">
+        	<input type="submit" value="Sign out"/>
+    	</form>
+    	<a href="/">Home</a>
+    	<a href="/resume/list">Resume</a>
+    	<a href="/review">Reviews</a>
+    	<a href="/contactUs">Contact Us</a> 		
+    </div>
 
-<div class="container">
+<div class="main">
     <div th:if="${not #lists.isEmpty(resumes)}">
         <h2>Resume List</h2>
         <table class="table table-striped">
@@ -53,10 +56,8 @@
             </tr>
         </table>
     </div>
-    <div class="row">
-        <div class="col-sm-3">
-            <a href="/resume/new">New Resume</a>
-        </div>
+    <div class = "main">
+            <a style = "margin-left: 15px" href="/resume/new">Create a New Resume!</a>
     </div>
 </div>
 

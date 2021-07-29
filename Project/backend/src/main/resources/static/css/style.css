@@ -1,3 +1,37 @@
+.navbar {
+  overflow: hidden;
+  background-color: #800080;
+  position: fixed;
+  top: 0;
+  width: 100%; 
+}
+
+.main {
+	margin-top:50px;
+}
+h2 {
+	margin-left: 10px;
+}
+.navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.inputs {
+	margin-bottom: 10px;
+}
+body {
+	background-color: #F2F2F2;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
 textarea
 {
   font-family:"Roboto", Times, serif;
