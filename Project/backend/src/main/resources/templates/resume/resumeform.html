@@ -106,13 +106,17 @@
 
                     <span class="help-block">
                        <ul>
-                           <li th:each="err : ${#fields.errors('certificates')}" th:text="${err}" />
+                           <li 
+                           <textarea
+                           		cols="40" name="certificateText" rows="4" style="100%" th:each="err : ${#fields.errors('certificates')}" th:text="${err}" 
+                           </textarea>
+                           </li>
                        </ul>
                     </span>
                 </div>
             </div>
             <div class="row">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <button style = "margin-left: 30px; margin-right: 30px" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
             </div>
         </form>
     </div>
