@@ -22,10 +22,12 @@
     <p>Please fill in this form to create an account.</p>
     <hr>
    		<p style = "margin: auto">
+   		<div th:object="${user}">
    			<label for="firstName" class="sr-only">First Name</label>
-    		<input type="text" id="first" name="firstName" class="form-control" placeholder="Enter First Name" required="" autofocus="">
+    		<input type="text" th:field="*{firstname}" id="first" name="firstName" class="form-control" placeholder="Enter First Name" required="" autofocus="">
    			<label for="lastName" class="sr-only">Last Name</label>
-    		<input type="text" id="last" name="lastName" class="form-control" placeholder="Enter Last Name" required="" autofocus="">
+    		<input type="text" th:field="*{lastname}" id="last" name="lastName" class="form-control" placeholder="Enter Last Name" required="" autofocus="">
+		</div>
    			<label for="email" class="sr-only">Email</label>
     		<input type="text" th:field="*{email}" id="email" name="email" class="form-control" placeholder="Enter Email">
 			<label for="password" class="sr-only">Password</label>
