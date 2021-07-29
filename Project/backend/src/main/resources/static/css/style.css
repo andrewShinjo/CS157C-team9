@@ -1,3 +1,8 @@
+textarea
+{
+  font-family:"Roboto", Times, serif;
+  font-size: 20px;
+}
 .centered {
 	margin: auto;
 	width: 50%;
