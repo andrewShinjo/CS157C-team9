@@ -12,7 +12,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
  * Representing table 'resumes'
  * @author Xiang Liu
  */
-@Table("reviews")
+@Table("resumes")
 public class Reviews implements Serializable {
     @PrimaryKey
     private UUID userid;
@@ -106,4 +106,13 @@ public class Reviews implements Serializable {
     public void setDate (Date date) {
         this.date = date;
     }
+
+	@Override
+	public String toString() {
+		return "Reviews [userid=" + userid + ", field=" + field + ", objective=" + objective + ", education="
+				+ education + ", qualifications=" + qualifications + ", work_experience=" + work_experience
+				+ ", certificates=" + certificates + ", comments=" + comments + ", date=" + date + "]";
+	}
+    
+    
 }
