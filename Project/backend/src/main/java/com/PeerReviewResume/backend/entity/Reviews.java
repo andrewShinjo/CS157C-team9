@@ -12,7 +12,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
  * Representing table 'resumes'
  * @author Xiang Liu
  */
-@Table("resumes")
+@Table("reviews")
 public class Reviews implements Serializable {
     @PrimaryKey
     private UUID userid;
