@@ -2,9 +2,13 @@ package com.PeerReviewResume.backend.controllers;
 import com.PeerReviewResume.backend.commands.ResumeForm;
 import com.PeerReviewResume.backend.converters.ResumeToResumeForm;
 import com.PeerReviewResume.backend.entity.Resume;
+import com.PeerReviewResume.backend.entity.UserCredentials;
+import com.PeerReviewResume.backend.repositories.UserCredentialsRepository;
 import com.PeerReviewResume.backend.services.ResumeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +26,9 @@ public class ResumeController {
     private ResumeToResumeForm resumeToResumeForm;
 
     @Autowired
+    private UserCredentialsRepository userCredentialsRepository;
+
+    @Autowired
     public void setResumeToResumeForm(ResumeToResumeForm resumeToResumeForm) {
         this.resumeToResumeForm = resumeToResumeForm;
     }
@@ -34,6 +41,17 @@ public class ResumeController {
     @RequestMapping("/")
     public String redirToList() {
         return "redirect:/resume/list";
+    }
+
+    @RequestMapping("/resume/review_content")
+    public String showResumes( Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName();
+
+        UUID currentUserId = userCredentialsRepository.findByEmail(email).get().getUserid();
+        model.addAttribute("resumes", resumeService.selectResume(currentUserId));
+        return "resume/review_content";
+
     }
     
 

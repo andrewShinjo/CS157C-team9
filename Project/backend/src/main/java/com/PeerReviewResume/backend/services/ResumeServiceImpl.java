@@ -23,7 +23,6 @@ public class ResumeServiceImpl implements ResumeService {
 
     private ResumeRepository resumeRepository;
     private ResumeFormToResume resumeFormToResume;
-    private ResumeService resumeService;
     @Autowired
     private UserCredentialsRepository userCredentialsRepository;
 
@@ -33,16 +32,6 @@ public class ResumeServiceImpl implements ResumeService {
         this.resumeFormToResume = resumeFormToResume;
     }
 
-    @RequestMapping("/resume/review_content")
-    public String showResumes( Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String email = auth.getName();
-
-        UUID currentUserId = userCredentialsRepository.findByEmail(email).get().getUserid();
-        model.addAttribute("resumes", resumeService.selectResume(currentUserId));
-        return "resume/review_content";
-
-    }
     @Override
     public List<Resume> listAll() {
         List<Resume> resumes = new ArrayList<>();
