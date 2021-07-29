@@ -9,6 +9,7 @@ public interface ResumeService {
     List<Resume> listAll();
     Resume getById (UUID id);
     Resume saveOrUpdate (Resume resume);
+    Resume selectResume(UUID id);
     void delete(UUID id);
     Resume saveOrUpdateResumeForm( ResumeForm resumeForm);
 }
