@@ -37,7 +37,7 @@ public class ReviewsController {
 		return "pages/review";
 	}
 	
-	@PostMapping(value ="review")
+	@PostMapping(value ="/review")
 	public String onSubmit(@ModelAttribute Reviews reviews) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email = auth.getName();

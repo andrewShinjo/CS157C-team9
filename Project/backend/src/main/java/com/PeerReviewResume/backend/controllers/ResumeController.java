@@ -13,10 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -54,7 +51,7 @@ public class ResumeController {
             return "pages/contactUs";
     }
 
-    @RequestMapping("/resume/review_content")
+    @RequestMapping("/review_content")
     public String showResumes( Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String email = auth.getName();
@@ -73,11 +70,17 @@ public class ResumeController {
         return "redirect:/";
 
     }
-    
+    @PostMapping(value = "/review_content")
+    public String onReview( ){
+        return "/review";
+    }
 
     @RequestMapping({"/resume/list", "/resume"})
     public String listResumes( Model model) {
-        model.addAttribute("resumes", resumeService.listAll());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName();
+        UUID currentUserId = userCredentialsRepository.findByEmail(email).get().getUserid();
+        model.addAttribute("resumes", resumeService.getById(currentUserId));
         return "resume/list";
     }
 

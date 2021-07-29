@@ -64,13 +64,12 @@ public class UserCredentialsController {
 		if (uc.isEmpty()) {
 			userCredentials.setPassword(passwordEncoder().encode(userCredentials.getPassword()));
 			userCredentialsRepository.save(userCredentials);
-			
 			user.setCreatedAt(new Date());
 			user.setEmail(userCredentials.getEmail());
 			user.setUserid(userCredentials.getUserid());
 			userRepository.save(user);
 		}
-		return "redirect:/resume/review_content" ;
+		return "redirect:/" ;
 	}
 
 
