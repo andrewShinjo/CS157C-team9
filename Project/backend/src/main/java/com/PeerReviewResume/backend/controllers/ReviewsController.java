@@ -1,7 +1,10 @@
 package com.PeerReviewResume.backend.controllers;
 
+import java.util.Date;
 import java.util.UUID;
 
+import com.PeerReviewResume.backend.entity.Resume;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +16,7 @@ import com.PeerReviewResume.backend.repositories.ReviewsRepository;
 
 @Controller
 public class ReviewsController {
+	@Autowired
 	private ReviewsRepository reviewRepo;
 	
 	@GetMapping(value = "/review")
@@ -21,13 +25,11 @@ public class ReviewsController {
 		return "pages/review";
 	}
 	
-	@PostMapping(value = "/review")
-	public String onSubmit(@ModelAttribute Reviews reviews) {
-		reviews.setUserid(new UUID(0,1));
-		reviews.setDate(new java.util.Date());
-		reviews.setField("Computer Science");
-		reviews.setComments("good job");
-		System.out.println(reviews.toString());
+	@PostMapping({"review", "/resume/review_content"})
+	public String onSubmit(@ModelAttribute Reviews reviews, @ModelAttribute Resume resumes) {
+		reviews.setUserid(resumes.getUserid());
+		reviews.setDate(new Date());
+		reviews.setField(resumes.getField());
 		reviewRepo.save(reviews);
 		return "pages/review";
 	}
