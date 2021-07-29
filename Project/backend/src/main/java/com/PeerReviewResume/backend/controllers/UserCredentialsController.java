@@ -70,7 +70,7 @@ public class UserCredentialsController {
 			user.setUserid(userCredentials.getUserid());
 			userRepository.save(user);
 		}
-		return "pages/signUp" ;
+		return "redirect:/resume/review_content" ;
 	}
 
 

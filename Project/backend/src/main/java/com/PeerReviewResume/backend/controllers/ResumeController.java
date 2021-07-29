@@ -3,6 +3,7 @@ import com.PeerReviewResume.backend.commands.ResumeForm;
 import com.PeerReviewResume.backend.converters.ResumeToResumeForm;
 import com.PeerReviewResume.backend.entity.Resume;
 import com.PeerReviewResume.backend.entity.UserCredentials;
+import com.PeerReviewResume.backend.repositories.ResumeRepository;
 import com.PeerReviewResume.backend.repositories.UserCredentialsRepository;
 import com.PeerReviewResume.backend.services.ResumeService;
 
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -24,6 +27,8 @@ public class ResumeController {
     private ResumeService resumeService;
 
     private ResumeToResumeForm resumeToResumeForm;
+    @Autowired
+    private ResumeRepository resumeRepository;
 
     @Autowired
     private UserCredentialsRepository userCredentialsRepository;
@@ -48,9 +53,17 @@ public class ResumeController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String email = auth.getName();
 
+
         UUID currentUserId = userCredentialsRepository.findByEmail(email).get().getUserid();
-        model.addAttribute("resumes", resumeService.selectResume(currentUserId));
-        return "resume/review_content";
+        List<Resume> resumes = new ArrayList<>();
+        resumeRepository.findAll().forEach(resumes::add);
+        for (Resume resume: resumes) {
+            if(!resume.getUserid().equals(currentUserId)){
+                model.addAttribute("resumes", resume);
+                return "resume/review_content";
+            }
+        }
+        return "redirect:/";
 
     }
     

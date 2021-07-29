@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -50,17 +51,7 @@ public class ResumeServiceImpl implements ResumeService {
         return resume;
     }
 
-    @Override
-    public Resume selectResume(UUID id) {
-        List<Resume> resumes = new ArrayList<>();
-        resumeRepository.findAll().forEach(resumes::add);
-        for (Resume resume: resumes) {
-            if(!resume.getUserid().equals(id)){
-                return resume;
-            }
-        }
-        return null;
-    }
+
 
     @Override
     public void delete(UUID id) {
