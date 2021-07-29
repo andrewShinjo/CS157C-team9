@@ -59,6 +59,7 @@ public class ResumeController {
         resumeRepository.findAll().forEach(resumes::add);
         for (Resume resume: resumes) {
             if(!resume.getUserid().equals(currentUserId)){
+
                 model.addAttribute("resumes", resume);
                 return "resume/review_content";
             }

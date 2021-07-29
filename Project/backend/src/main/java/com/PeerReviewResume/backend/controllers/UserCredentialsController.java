@@ -39,7 +39,7 @@ public class UserCredentialsController {
 	private UserCredentialsRepository userCredentialsRepository ;
 	
 	@Autowired 
-	UserRepository userRepository ;
+	private UserRepository userRepository ;
 
 	@GetMapping(value="/logout")
 	public String logout(HttpServletRequest request , HttpServletResponse response) {
