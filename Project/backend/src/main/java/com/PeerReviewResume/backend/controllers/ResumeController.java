@@ -70,10 +70,7 @@ public class ResumeController {
         return "redirect:/";
 
     }
-    @PostMapping(value = "/review_content")
-    public String onReview( ){
-        return "/review";
-    }
+
 
     @RequestMapping({"/resume/list", "/resume"})
     public String listResumes( Model model) {
